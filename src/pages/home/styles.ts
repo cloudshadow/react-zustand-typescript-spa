@@ -3,9 +3,8 @@ import { theme } from '@/styles';
 
 /**
  * Linaria example covering the patterns this template relies on:
- * - CSS logical properties for RTL (D18 path a)
- * - `[dir='rtl'] &` overrides for what logical properties cannot express (path b)
- * - descendant selectors, needed to restyle CMS-injected markup (D3')
+ * - CSS logical properties for RTL (preferred)
+ * - `[dir='rtl'] &` overrides for what logical properties cannot express
  */
 export const Section = styled.section`
   margin-inline: auto;
@@ -17,11 +16,6 @@ export const Section = styled.section`
   /* RTL fallback for things logical properties do not cover. */
   [dir='rtl'] & .badge {
     transform: scaleX(-1);
-  }
-
-  /* Restyle markup injected by CMS content. */
-  .cms-injected .banner img {
-    margin-inline-end: ${theme.space(11)};
   }
 
   @media ${theme.breakpoint.mobile} {

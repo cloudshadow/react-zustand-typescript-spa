@@ -8,13 +8,13 @@ import type { Locale } from "@/types";
 
 // Eagerly import the shared style module so its Linaria CSS is part of the main
 // chunk (see README "Desktop / mobile split"). Only the components are lazy.
-import "./pages/panel/styles";
+import "./pages/home/styles";
 
-const PanelPage = lazy(() => import("./pages/panel"));
+const HomePage = lazy(() => import("./pages/home"));
 
 /**
- * Declarative Mode (D15): plain BrowserRouter, no `@react-router/dev`, no
- * loaders. All data flows through TanStack Query.
+ * Declarative Mode: plain BrowserRouter, no `@react-router/dev`, no loaders.
+ * All data flows through TanStack Query.
  */
 export function App({ locale }: { locale: Locale }) {
   return (
@@ -24,7 +24,7 @@ export function App({ locale }: { locale: Locale }) {
           <ErrorBoundary componentName="App">
             <Suspense fallback={null}>
               <Routes>
-                <Route path="/" element={<PanelPage />} />
+                <Route path="/" element={<HomePage />} />
                 <Route path="*" element={<div>404 - not found</div>} />
               </Routes>
             </Suspense>
